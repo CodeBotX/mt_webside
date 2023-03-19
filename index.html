@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>IEEE 754 Converter</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>IEEE 754 Converter</h1>
+
+    <div class="form-container">
+      <form id="binary-form">
+        <label for="binary-input">Enter binary value:</label>
+        <input type="text" id="binary-input" name="binary-input" required>
+        <button type="submit">Convert to decimal</button>
+      </form>
+
+      <form id="decimal-form">
+        <label for="decimal-input">Enter decimal value:</label>
+        <input type="number" id="decimal-input" name="decimal-input" required>
+        <button type="submit">Convert to binary</button>
+      </form>
+    </div>
+
+    <div id="output-container">
+      <p id="decimal-output"></p>
+      <p id="binary-output"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
