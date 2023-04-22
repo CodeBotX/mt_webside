@@ -93,13 +93,13 @@ form {
 }
 
 .message-container--user {
-	align-self: flex-end; /* Các tin nhắn người dùng nằm bên phải */
+	align-self: flex-start; /* Các tin nhắn người dùng nằm bên phải */
 	background-color: #fff;
 	border: 1px solid #ddd;
 }
 
 .message-container--bot {
-	align-self: flex-start; /* Các tin nhắn bot nằm bên trái */
+	align-self: flex-end; /* Các tin nhắn bot nằm bên trái */
 	background-color: #eee;
 	border: 1px solid #ddd;
 }
