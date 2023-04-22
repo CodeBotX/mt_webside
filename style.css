@@ -1,62 +1,110 @@
-body {
-	font-family: sans-serif;
+* {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-  }
-  
-  h1 {
+}
+
+body {
+	font-family: sans-serif;
+}
+
+header {
 	text-align: center;
-  }
-  
-  .form-container {
+	background-color: #3498db;
+	color: #fff;
+	padding: 20px;
+}
+
+main {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	margin: 50px auto;
-  }
-  
-  form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 20px;
-  }
-  
-  label {
-	margin-bottom: 10px;
-  }
-  
-  input {
-	padding: 5px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	margin-bottom: 10px;
-  }
-  
-  button {
+	height: 100vh;
 	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	background-color: #007bff;
-	color: white;
-	cursor: pointer;
-  }
-  
-  button:hover {
-	background-color: #0062cc;
-  }
-  
-  #output-container {
+	justify-content: space-between;
+}
+
+#messages {
+	background-image: url("br.png");
+	background-size: cover;
+	background-position: center center;
+	border: 1px solid black;
+	padding: 10px;
+	margin-bottom: 10px;
+	height: 60%;
+	overflow-y: scroll;
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start; /* Chỉnh các tin nhắn nằm trên cùng bên trái */
+}
+
+form {
+	display: flex;
 	align-items: center;
-	margin-top: 50px;
-  }
-  
-  #decimal-output,
-  #binary-output {
-	font-size: 1.5rem;
-	margin: 10px;
-	font-weight: bold;
-  }
-  
+	justify-content: center;
+	margin-top: 10px;
+}
+
+#messageInput {
+	flex-grow: 1;
+	margin-right: 5px;
+	padding: 5px;
+	font-size: 16px;
+}
+
+#sendButton {
+	padding: 5px 10px;
+	font-size: 16px;
+	background-color: #3498db;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+	main {
+		padding: 5px;
+	}
+
+	#messages {
+		height: 40%;
+	}
+
+	#messageInput {
+		font-size: 14px;
+	}
+}
+
+.message-container {
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 10px;
+	max-width: 80%; /* Giới hạn độ rộng của tin nhắn */
+	word-wrap: break-word; /* Chia các từ quá dài sang dòng mới */
+}
+
+.message-container:nth-child(odd) {
+	background-color: #e8c2d9; /* Màu hồng nhạt */
+}
+
+.message-container:nth-child(even) {
+	background-color: #b0c4de; /* Màu tím nhạt */
+}
+
+.message-container--user {
+	align-self: flex-end; /* Các tin nhắn người dùng nằm bên phải */
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.message-container--bot {
+	align-self: flex-start; /* Các tin nhắn bot nằm bên trái */
+	background-color: #eee;
+	border: 1px solid #ddd;
+}
+
+.message-container span {
+	border-radius: 5px;
+	padding: 5px;
+}

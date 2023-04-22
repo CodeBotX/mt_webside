@@ -1,59 +1,74 @@
-const binaryForm = document.getElementById('binary-form');
-const decimalForm = document.getElementById('decimal-form');
-const decimalOutput = document.getElementById('decimal-output');
-const binaryOutput = document.getElementById('binary-output');
+const messageInput = document.querySelector('#messageInput');
+const sendButton = document.querySelector('#sendButton');
+const messagesContainer = document.querySelector('#messages');
 
-binaryForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const binaryInput = document.getElementById('binary-input').value;
-  const sanitizedBinaryInput = binaryInput.replace(/\s/g, ''); // remove spaces
-  const binary = sanitizedBinaryInput.padStart(32, '0'); // pad leading 0s
-  const sign = binary.charAt(0) === '0' ? 1 : -1;
-  const exponentBinary = binary.substr(1, 8);
-  const mantissaBinary = binary.substr(9, 23);
-  const exponentDecimal = parseInt(exponentBinary, 2) - 127;
-  let mantissaDecimal = 0;
+let isUser = true;
 
-  for (let i = 0; i < mantissaBinary.length; i++) {
-    mantissaDecimal += parseInt(mantissaBinary.charAt(i)) * Math.pow(2, -(i + 1));
-  }
-
-  const decimal = sign * Math.pow(2, exponentDecimal) * (1 + mantissaDecimal);
-  decimalOutput.innerHTML = decimal.toString();
-});
-
-decimalForm.addEventListener('submit', e => {
-  e.preventDefault();
-  const decimalInput = document.getElementById('decimal-input').value;
-  const decimal = parseFloat(decimalInput);
-  let sign = decimal < 0 ? 1 : 0;
-  let absDecimal = Math.abs(decimal);
-  let integerPartBinary = '';
-  let fractionalPartBinary = '';
-
-  if (absDecimal >= 1) {
-    integerPartBinary = Math.floor(absDecimal).toString(2);
-    absDecimal -= Math.floor(absDecimal);
-  } else {
-    integerPartBinary = '0';
-  }
-
-  for (let i = 0; i < 23; i++) {
-    absDecimal *= 2;
-    if (absDecimal >= 1) {
-      fractionalPartBinary += '1';
-      absDecimal -= 1;
-    } else {
-      fractionalPartBinary += '0';
-    }
-  }
-
-  const exponent = (integerPartBinary.length - 1) + 127;
-  const exponentBinary = exponent.toString(2).padStart(8, '0');
-  const mantissaBinary = integerPartBinary.substr(1) + fractionalPartBinary;
-  const mantissaPaddedBinary = mantissaBinary.padEnd(23, '0');
-  const binary = sign.toString() + exponentBinary + mantissaPaddedBinary;
-  binaryOutput.innerHTML = binary;
-});
-
+// Xử lý sự kiện gửi tin nhắn
+function sendMessage(event) {
+  event.preventDefault();
+  const message = messageInput.value;
+  if (message.trim() === '') return;
   
+  if (message.trim().toLowerCase() === 'delete all') {
+    messagesContainer.innerHTML = '';
+    localStorage.removeItem('messages');
+    return;
+  }
+
+  const messageContainer = document.createElement('div');
+  const messageText = document.createElement('span');
+
+  messageText.textContent = message;
+  messageContainer.appendChild(messageText);
+  messagesContainer.appendChild(messageContainer);
+
+  messageContainer.classList.add('message-container');
+
+  if (isUser) {
+    messageContainer.classList.add('message-container--user');
+  } else {
+    messageContainer.classList.add('message-container--bot');
+  }
+
+  isUser = !isUser;
+
+  messageInput.value = '';
+  messageInput.focus();
+  
+  // Lưu tin nhắn vào localStorage
+  const messages = JSON.parse(localStorage.getItem('messages')) || [];
+  messages.push(message);
+  localStorage.setItem('messages', JSON.stringify(messages));
+}
+
+// Thêm xử lý sự kiện cho nút "Gửi"
+sendButton.addEventListener('click', sendMessage);
+
+// Thêm xử lý sự kiện cho phím Enter
+messageInput.addEventListener('keydown', event => {
+  if (event.keyCode === 13) {
+    sendMessage(event);
+  }
+});
+
+// Lấy tin nhắn đã lưu trong localStorage và hiển thị lên màn hình
+const messages = JSON.parse(localStorage.getItem('messages')) || [];
+messages.forEach(message => {
+  const messageContainer = document.createElement('div');
+  const messageText = document.createElement('span');
+
+  messageText.textContent = message;
+  messageContainer.appendChild(messageText);
+  messagesContainer.appendChild(messageContainer);
+
+  messageContainer.classList.add('message-container');
+
+  if (isUser) {
+    messageContainer.classList.add('message-container--user');
+  } else {
+    messageContainer.classList.add('message-container--bot');
+  }
+
+  isUser = !isUser;
+});
