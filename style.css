@@ -1,115 +1,90 @@
 * {
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-}
-
-body {
-	font-family: sans-serif;
-}
-
-header {
-	text-align: center;
-	background-color: #3498db;
+	box-sizing: border-box;
+  }
+  
+  body {
+	background-color: #333;
 	color: #fff;
-	padding: 20px;
-}
-
-main {
+	font-family: Arial, sans-serif;
 	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	padding: 10px;
-	justify-content: space-between;
-}
-
-#messages {
-	background-image: url("br.png");
-	background-size: cover;
-	background-position: center center;
-	border: 1px solid black;
-	padding: 10px;
-	margin-bottom: 10px;
-	height: 60%;
-	overflow-y: scroll;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start; /* Chỉnh các tin nhắn nằm trên cùng bên trái */
-}
-
-form {
-	display: flex;
-	align-items: center;
 	justify-content: center;
-	margin-top: 10px;
-	
-	position: absolute;
-	bottom: 20%;
-	left: 10%;
-	transform: translate(-50%, -100%);
-}
-
-#messageInput {
-	flex-grow: 1;
-	margin-right: 5px;
-	padding: 5px;
-	font-size: 16px;
-}
-
-#sendButton {
-	padding: 5px 10px;
-	font-size: 16px;
-	background-color: #3498db;
-	color: #fff;
+	align-items: center;
+	height: 100vh;
+  }
+  
+  .container {
+	background-color: rgba(0,0,0,0.7);
+	padding: 30px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0px 0px 10px #000;
+  }
+  
+  h2 {
+	margin-bottom: 20px;
+  }
+  
+  form {
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .input-box {
+	position: relative;
+	margin-bottom: 20px;
+  }
+  
+  input {
 	border: none;
+	border-bottom: 2px solid #fff;
+	background-color: transparent;
+	color: #fff;
+	font-size: 18px;
+	padding: 10px 0px;
+	width: 100%;
+	margin-bottom: 5px;
+  }
+  
+  label {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	font-size: 18px;
+	color: #fff;
+	pointer-events: none;
+	transition: all 0.5s ease-in-out;
+  }
+  
+  input:focus ~ label,
+  input:valid ~ label {
+	transform: translateY(-25px);
+	font-size: 14px;
+	color: #fff;
+  }
+  
+  button[type="submit"] {
+	background-color: #fff;
+	color: #333;
+	border: none;
+	padding: 10px 20px;
+	font-size: 18px;
 	border-radius: 5px;
 	cursor: pointer;
-}
-
-@media screen and (max-width: 768px) {
-	main {
-		padding: 5px;
-	}
-
-	#messages {
-		height: 40%;
-	}
-
-	#messageInput {
-		font-size: 14px;
-	}
-}
-
-.message-container {
-	border-radius: 5px;
-	display: inline-block;
-	padding: 10px;
-	margin-bottom: 10px;
-	max-width: 80%; /* Giới hạn độ rộng của tin nhắn */
-	word-wrap: break-word; /* Chia các từ quá dài sang dòng mới */
-}
-
-.message-container:nth-child(odd) {
-	background-color: #e8c2d9; /* Màu hồng nhạt */
-}
-
-.message-container:nth-child(even) {
-	background-color: #b0c4de; /* Màu tím nhạt */
-}
-
-.message-container--user {
-	align-self: flex-start; /* Các tin nhắn người dùng nằm bên phải */
-	background-color: #fff;
-	border: 1px solid #ddd;
-}
-
-.message-container--bot {
-	align-self: flex-end; /* Các tin nhắn bot nằm bên trái */
-	background-color: #eee;
-	border: 1px solid #ddd;
-}
-
-.message-container span {
-	border-radius: 5px;
-	padding: 5px;
-}
+	transition: all 0.5s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+	background-color: #333;
+	color: #fff;
+  }
+  .main{
+	margin-bottom: 20px;
+  }
+  h1 {
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+  

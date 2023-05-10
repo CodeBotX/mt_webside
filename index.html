@@ -1,23 +1,45 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="UTF-8">
-      <title>Chat With Minh Tiến</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-      <header>
-        <h1>Chat With Minh Tiến</h1>
-      </header>
-      <main>
-        <div id="messages"></div>
-        <form>
-          <input type="text" id="messageInput" placeholder="Nhập tin nhắn của bạn...">
-          <button type="submit" id="sendButton">Gửi</button>
-        </form>
-      </main>
-      <script src="script.js"></script>
-      
-    </body>
-  </html>
+<html lang="vn">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Minh Tiến</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!-- Nội dung web, sẽ được hiển thị khi đăng nhập đúng  -->
+	<div class="main" id="main-container" style="display: none;">
+		<header>
+			<div class="container">
+			  <nav>
+				<ul>
+				  <li><a href="#">Trang chủ</a></li>
+				  <li><a href="#">Giới thiệu</a></li>
+				  <li><a href="#">Tin tức</a></li>
+				  <li><a href="#">Liên hệ</a></li>
+				</ul>
+			  </nav>
+			</div>
+		  </header>
+	
+	</div>
+	<!-- trường đăng nhập  -->
+    <div class="container" id="login-container" style="display: block;">
+      <form id="login-form">
+        <h2>Login Form</h2>
+        <div class="input-box">
+          <input type="text" id="username" required>
+          <label for="username">Username</label>
+        </div>
+        <div class="input-box">
+          <input type="password" id="password" required>
+          <label for="password">Password</label>
+        </div>
+        <button type="submit" id="submit-btn">Login</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+
+</html>
