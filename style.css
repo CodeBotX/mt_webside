@@ -73,6 +73,10 @@
 	border-radius: 5px;
 	cursor: pointer;
 	transition: all 0.5s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
   }
   
   button[type="submit"]:hover {
@@ -82,9 +86,62 @@
   .main{
 	margin-bottom: 20px;
   }
-  h1 {
-	position: absolute;
-	top: 0;
-	left: 0;
+  #start-button button {
+	background-color: #4CAF50; /* Màu nền của nút */
+	border: none; /* Loại bỏ viền nút */
+	color: white; /* Màu chữ trên nút */
+	padding: 12px 24px; /* Khoảng cách giữa văn bản và viền của nút */
+	text-align: center; /* Căn giữa văn bản trên nút */
+	text-decoration: none; /* Loại bỏ gạch chân cho văn bản nút */
+	display: inline-block; /* Hiển thị nút dưới dạng khối trên một dòng */
+	font-size: 16px; /* Kích thước chữ trên nút */
+	border-radius: 8px; /* Bo góc của nút */
+	cursor: pointer; /* Biểu tượng chuột trên nút */
+	transition-duration: 0.4s; /* Thời gian chuyển đổi khi di chuột qua nút */
+
   }
   
+  #start-button button:hover {
+	background-color: #3e8e41; /* Màu nền của nút khi di chuột qua */
+  }
+  #main-container .main h1 {
+	text-align: center;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 2rem;
+	color: #333;
+	margin-top: 50px;
+  }
+  #countdown {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	background-color: #232323;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	font-size: 2rem;
+	font-family: monospace;
+  }
+  
+  #countdown span {
+	display: inline-block;
+	min-width: 2rem;
+	text-align: center;
+	margin: 0 5px;
+	border-radius: 3px;
+	background-color: #444;
+	padding: 5px;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  #current-date {
+	font-size: 0.8em;
+	margin-left: 0.2em;
+  }
+  #timesUp {
+	text-align: center;
+	color: red;
+  }

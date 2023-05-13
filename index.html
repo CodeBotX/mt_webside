@@ -10,24 +10,31 @@
 <body>
 	<!-- Nội dung web, sẽ được hiển thị khi đăng nhập đúng  -->
 	<div class="main" id="main-container" style="display: none;">
-		<header>
-			<div class="container">
-			  <nav>
-				<ul>
-				  <li><a href="#">Trang chủ</a></li>
-				  <li><a href="#">Giới thiệu</a></li>
-				  <li><a href="#">Tin tức</a></li>
-				  <li><a href="#">Liên hệ</a></li>
-				</ul>
-			  </nav>
-			</div>
-		  </header>
-	
+		<!-- nút bắt đầu  -->
+		<h1 id="tieu-de">Bài Thi Môn Toán. Thời Gian Thi 120 Phút</h1>
+		<div id="start-button" style="display: block;">
+			<button onclick="startTest()">Bắt đầu</button>
+		</div>
+		<!-- đề bài  -->
+		<div id="test" style="display:none">
+			<h1>Bài kiểm tra</h1>
+			  <div id="De_thi">
+				<img src="dethi.png" alt="Đề thi">
+			  </div>
+			  <div id="countdown">
+				<span id="minutes"></span> : <span id="seconds"></span>
+				<span id="current-date"></span>
+			  </div>
+		</div>
+		<!-- Khi hết giờ  -->
+		<div id="timesUp" style="display:none">
+			<h1 id="endtime">Hết giờ</h1>
+		</div>
 	</div>
 	<!-- trường đăng nhập  -->
     <div class="container" id="login-container" style="display: block;">
       <form id="login-form">
-        <h2>Login Form</h2>
+        <h2>Login</h2>
         <div class="input-box">
           <input type="text" id="username" required>
           <label for="username">Username</label>
