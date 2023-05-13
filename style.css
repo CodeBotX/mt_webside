@@ -113,8 +113,8 @@
   }
   #countdown {
 	position: fixed;
-	top: 50%;
-	left: 0;
+	top: 5%;
+	right: 25%;
 	transform: translateY(-50%);
 	display: flex;
 	align-items: center;
@@ -125,6 +125,8 @@
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	font-size: 2rem;
 	font-family: monospace;
+
+
   }
   
   #countdown span {
@@ -145,3 +147,27 @@
 	text-align: center;
 	color: red;
   }
+
+  /* Style mặc định cho hình ảnh */
+img {
+	max-width: 100%;
+	height: auto;
+  }
+  
+  /* Style cho điện thoại */
+  @media screen and (max-width: 767px) {
+	.image-container {
+	  width: 90%;
+	  margin: 0 auto;
+	}
+  }
+  
+  /* Style cho máy tính */
+  @media screen and (min-width: 768px) {
+	.image-container {
+	  width: auto;
+	  max-width: 90%;
+	  margin: 0 auto;
+	}
+  }
+  
