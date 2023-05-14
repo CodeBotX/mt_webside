@@ -24,8 +24,8 @@ function handleLogin() {
 
 function startTest() {
   document.getElementById("test").style.display = "block";
-  var minutes = 120; // Thời gian kiểm tra
-  var seconds = 0;
+  var minutes = 0; // Thời gian kiểm tra
+  var seconds = 5;
   var countdown = setInterval(function() {
     if (minutes == 0 && seconds == 0) {
       clearInterval(countdown);
